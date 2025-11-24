@@ -22,21 +22,51 @@ return;}
   clearGallery();
 
   getImagesByQuery(query)
-    .then(images => {
-      createGallery(images);
-      if (images.length === 0) {
-        iziToast.error({
-          message: 'No images found. Try another query.',
-          position: 'topRight',
-        });
-      }
+  .then (data => {
+    const { hits = [] } = data;
+    if (hits.length === 0) {
+      iziToast.error({
+        message: 'No images found. Try another query.',
+        position: 'topRight',
+      });
+      return;
+    }
+    createGallery(hits);
+    })
+     .catch(err => {
+      iziToast.error({
+        message: 'Request failed',
+        position: 'topRight',
+      });
+      console.error(err);
     })
     .finally(() => {
       hideLoader();
       event.target.reset();
     });
-    
   });
+ 
+  //   .then(images => {
+  //     createGallery(images);
+  //     if (images.length === 0) {
+  //       iziToast.error({
+  //         message: 'No images found. Try another query.',
+  //         position: 'topRight',
+  //       });
+  //     }
+  //   })
+  //   .finally(() => {
+  //     hideLoader();
+  //     event.target.reset();
+  //   });
+    
+  // });
+
+
+
+
+
+
 // .catch(err => {
 //       iziToast.error({
 //         message: 'Request failed',
