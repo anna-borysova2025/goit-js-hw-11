@@ -7,50 +7,96 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+}
+
+.form input {
+    width: 272px;
+    height: 40px;
+    padding: 8px 16px;
+    border: 1px solid #808080;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form input:hover {
+    border-color: #000;
+}
+
+.form input:focus {
+    border-color: #4e75ff;
+}
+
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-top: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
 }
 
 .gallery-item {
-  width: 300px;
+    width: 360px;
+    border: 1px solid grey;
 }
 
 .gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.hidden {
-  display: none !important;
-}
 .stats {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  list-style: none;
-  padding: 0 32px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    max-width: 360px;
 }
 
 .stats-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .stats-label {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 .stats-value {
-  font-size: 16px;
+    font-size: 12px;
 }
+
+.form button {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 75px;
+    height: 40px;
+    border: none;
+    background-color: #4e75ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #6c8cff;
+}
+
 
 .loader {
   width: 48px;
@@ -58,6 +104,11 @@
   border-radius: 50%;
   position: relative;
   animation: rotate 1s linear infinite;
+}
+.loader-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 .loader::before,
 .loader::after {
@@ -94,4 +145,7 @@
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
   }
+}
+.hidden {
+    display: none;
 }
